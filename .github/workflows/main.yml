@@ -14,6 +14,7 @@ jobs:
           repository: manasa-bk/test-frontend
           token: ${{ secrets.PRIVATE_TOKEN_GITHUB }}
           submodules: true
+          path: parent
 
       - name: Pull & update submodules recursively
         run: |
