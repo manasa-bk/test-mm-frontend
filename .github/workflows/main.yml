@@ -21,6 +21,7 @@ jobs:
       - name: Pull & update submodules recursively
         run: |
           branch=$( echo ${{ github.ref }} | sed 's/refs\/heads\///g' )
+          git fetch
           git checkout $branch
           git submodule update --init --recursive
           git submodule update --recursive --remote
