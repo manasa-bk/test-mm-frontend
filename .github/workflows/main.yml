@@ -23,6 +23,7 @@ jobs:
           branch=$( echo ${{ github.ref }} | sed 's/refs\/heads\///g' )
           git fetch
           git checkout $branch
+          git pull origin $branch
           git submodule update --init --recursive
           git submodule update --recursive --remote
       - name: Commit
