@@ -17,9 +17,11 @@ jobs:
           repository: manasa-bk/test-frontend
           token: ${{ secrets.PRIVATE_TOKEN_GITHUB }}
           submodules: true
-
+  
       - name: Pull & update submodules recursively
         run: |
+          branch=$( echo ${{ github.ref }} | sed 's/refs\/heads\///g' )
+          git checkout $branch
           git submodule update --init --recursive
           git submodule update --recursive --remote
       - name: Commit
